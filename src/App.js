@@ -10,8 +10,15 @@ function App() {
     <BrowserRouter>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<><Banner/><MovieList/></>}/>
-        <Route path="/favourites" element={<Fav/>}/>
+        <Route path="/" element={
+        <>
+        <Banner/>
+        <MovieList/>
+        </>
+      }/>
+        <Route path="/favourites" element={
+        <Fav/>
+        }/>
       </Routes>
     </BrowserRouter>
     );

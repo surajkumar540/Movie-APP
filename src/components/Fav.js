@@ -14,7 +14,29 @@ class Fav extends Component {
     }
 
     componentDidMount(){
-        let genreIds = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 80: "Crime", 99: "Documentary", 18: "Drama", 10751: "Family", 14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music", 9648: "Mystery", 10749: "Romance", 878: "Science Fiction", 10770: "TV Movie", 53: "Thriller", 10752: "War", 37: "Western"}
+        let genreIds = 
+        { 
+            28: "Action", 
+            12: "Adventure", 
+            16: "Animation", 
+            35: "Comedy", 
+            80: "Crime", 
+            99: "Documentary", 
+            18: "Drama", 
+            10751: "Family", 
+            14: "Fantasy", 
+            36: "History", 
+            27: "Horror", 
+            10402: "Music", 
+            9648: "Mystery",
+            10749: "Romance", 
+            878: "Science Fiction", 
+            10770: "TV Movie", 
+            53: "Thriller", 
+            10752: "War", 
+            37: "Western"}
+
+
         let data = JSON.parse(localStorage.getItem("movies-app") || '[]'); //movies
         let tempArr = [];
         tempArr.push("All genres")
@@ -24,6 +46,7 @@ class Fav extends Component {
             }
         })
     
+
         this.setState({
             movies:[...data],
             movies2:[...data],
@@ -38,7 +61,29 @@ class Fav extends Component {
     }
 
     filterMovies = ()=>{
-        let genreIds = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 80: "Crime", 99: "Documentary", 18: "Drama", 10751: "Family", 14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music", 9648: "Mystery", 10749: "Romance", 878: "Science Fiction", 10770: "TV Movie", 53: "Thriller", 10752: "War", 37: "Western"}
+        let genreIds = 
+        { 
+            28: "Action", 
+            12: "Adventure", 
+            16: "Animation", 
+            35: "Comedy", 
+            80: "Crime", 
+            99: "Documentary", 
+            18: "Drama", 
+            10751: "Family", 
+            14: "Fantasy", 
+            36: "History", 
+            27: "Horror", 
+            10402: "Music", 
+            9648: "Mystery", 
+            10749: "Romance", 
+            878: "Science Fiction", 
+            10770: "TV Movie", 
+            53: "Thriller", 
+            10752: "War", 
+            37: "Western"
+        }
+        
         let data = JSON.parse(localStorage.getItem("movies-app") || '[]');
         if(this.state.currgenre == "All genres"){
             this.setState({
@@ -168,11 +213,15 @@ class Fav extends Component {
                                 {
                                     this.state.movies.map((movieEle) => (
                                         <tr>
-                                            <th scope="row"><img style={{ width: "8rem", padding: "1rem" }} src={`https://image.tmdb.org/t/p/original${movieEle.backdrop_path}`} />{movieEle.title}</th>
+                                            <th scope="row"><img style={{ width: "8rem", padding: "1rem" }} src={`https://image.tmdb.org/t/p/original${movieEle.backdrop_path}`} />
+                                            {movieEle.title}</th>
                                             <td className="text-center">{genreIds[movieEle.genre_ids[0]]}</td>
                                             <td className="text-center">{movieEle.popularity}</td>
                                             <td className="text-center" >{movieEle.vote_average}</td>
-                                            <td className="text-center"><button type="button" className="btn btn-danger">Delete</button></td>
+                                            <td className="text-center">
+                                                <button type="button" className="btn btn-danger">
+                                                Delete
+                                                </button></td>
                                         </tr>
                                     ))
                                 }
